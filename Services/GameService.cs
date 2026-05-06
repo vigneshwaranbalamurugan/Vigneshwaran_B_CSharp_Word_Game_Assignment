@@ -75,7 +75,7 @@ namespace GameApp.Services{
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Welcome to the Word Guessing Game!");
             Console.WriteLine($"You have {game.MaxAttempts} attempts to guess the hidden 5-letter word.\nGood luck!\n");
-            // Console.WriteLine($"The hidden word is: {game.HiddenWord}\n");
+            Console.WriteLine($"The hidden word is: {game.HiddenWord}\n");
             Console.WriteLine("Instructions:");
             Console.WriteLine("G - Correct letter in the correct position (Green)");
             Console.WriteLine("Y - Correct letter in the wrong position (Yellow)");
@@ -95,7 +95,10 @@ namespace GameApp.Services{
                 Console.Write("Enter your guess: ");
                 string guessWord = Console.ReadLine() ?? "";
                 guessValidator.ValidateGuessInput(guessWord);
-
+                if(game.IsGuessedAlready(guessWord)){
+                    Console.WriteLine("You have already guessed that word. That is not a correct word. Please try a different word.");
+                    return GetUserInput();
+                }
                 return guessWord.ToUpper();
             }catch (EmptyInputException ex){
                 Console.WriteLine(ex.Message);

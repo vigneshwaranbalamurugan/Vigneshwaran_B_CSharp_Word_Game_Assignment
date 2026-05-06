@@ -26,6 +26,10 @@ namespace GameApp.Models{
             score = 0;
         }
 
+        public bool IsGuessedAlready(string guessWord){
+            return PreviousGuesses.Contains(guessWord);
+        }
+
         public int calculateScore(){
             int baseScore = 100;
             int penaltyPerAttempt = 15;
