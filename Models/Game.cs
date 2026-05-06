@@ -7,10 +7,12 @@ namespace GameApp.Models{
         public int MaxAttempts { get; } = 6;
         public int CurrAttempt { get; set; }
         public List<string> PreviousGuesses { get; set;} = new List<string>();
+        public int score { get; set; }
 
         public Game(string hiddenWord){
             HiddenWord = hiddenWord;
             CurrAttempt=0;
+            score = 0;
         }
 
         public bool IsCorrectGuess(string guessWord){
@@ -21,6 +23,14 @@ namespace GameApp.Models{
             HiddenWord = hiddenWord;
             CurrAttempt = 0;
             PreviousGuesses.Clear();
+            score = 0;
+        }
+
+        public int calculateScore(){
+            int baseScore = 100;
+            int penaltyPerAttempt = 15;
+            int score = baseScore - (CurrAttempt * penaltyPerAttempt);
+            return Math.Max(score, 0);
         }
 
         public void AddGuess(string guessWord){

@@ -34,6 +34,10 @@ namespace GameApp.Services{
             feedbackService.AddFeedback(feedbackValue);
 
             if(ValidateWord(guessWord)){
+                game.score = game.calculateScore();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Your score: {game.score}");
+                Console.ResetColor();
                 Console.WriteLine("Would you like to replay? (Y/N)");
                 string replayChoice = Console.ReadLine()??"";
                 if(replayChoice.ToUpper().Equals("Y")){
@@ -48,7 +52,9 @@ namespace GameApp.Services{
                 game.CurrAttempt = game.MaxAttempts; // End the game loop
                 Console.WriteLine("Thank you for playing! Goodbye!");
             }else if(game.CurrAttempt == game.MaxAttempts - 1){
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Game Over! The hidden word was '{game.HiddenWord}'.");
+                Console.ResetColor();
                 Console.WriteLine("Would you like to replay? (Y/N)");
                 string replayChoice = Console.ReadLine()??"";
                 if(replayChoice.ToUpper().Equals("Y")){
@@ -125,7 +131,9 @@ namespace GameApp.Services{
                     5 => "Nice try!",
                     6 => "Well done!",
                     _ => "Congratulations!"};
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{message} Congratulations!\nYou guessed the word '{game.HiddenWord}' in {game.CurrAttempt + 1} attempts!");
+                Console.ResetColor();
                 return true;
             }
             feedbackService.DisplayFeedback(game.PreviousGuesses.Last());
