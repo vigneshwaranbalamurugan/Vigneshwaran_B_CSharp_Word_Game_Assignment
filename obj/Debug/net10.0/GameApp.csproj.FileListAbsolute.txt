@@ -1,0 +1,15 @@
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/bin/Debug/net10.0/GameApp
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/bin/Debug/net10.0/GameApp.deps.json
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/bin/Debug/net10.0/GameApp.runtimeconfig.json
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/bin/Debug/net10.0/GameApp.dll
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/bin/Debug/net10.0/GameApp.pdb
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/GameApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/GameApp.AssemblyInfoInputs.cache
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/GameApp.AssemblyInfo.cs
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/GameApp.csproj.CoreCompileInputs.cache
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/GameApp.sourcelink.json
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/GameApp.dll
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/refint/GameApp.dll
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/GameApp.pdb
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/GameApp.genruntimeconfig.cache
+/Users/vigneshwaran/Documents/GenSparkTraining/GameApp/obj/Debug/net10.0/ref/GameApp.dll
