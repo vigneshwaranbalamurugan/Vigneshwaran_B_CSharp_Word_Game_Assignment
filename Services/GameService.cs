@@ -165,7 +165,7 @@ namespace GameApp.Services{
             Console.WriteLine("Let's start the game!\n------------------------------------------------");
 
             bool isWin = false;
-            DateTime startedAt = DateTime.UtcNow;
+            DateTime startedAt = DateTime.Now;
 
             while(game.CurrAttempt < game.MaxAttempts){
                 Console.WriteLine($"Attempt {game.CurrAttempt + 1} of {game.MaxAttempts}");
@@ -202,7 +202,7 @@ namespace GameApp.Services{
                 Score = score,
                 IsWin = isWin,
                 StartedAt = startedAt,
-                FinishedAt = DateTime.UtcNow
+                FinishedAt = DateTime.Now
             };
 
             int savedGameId = gameHistoryRepository.SaveGame(gameHistory, currentMoves);
@@ -333,32 +333,8 @@ namespace GameApp.Services{
 
         private string ReadPassword(){
             Console.Write("Password: ");
-            var passwordCharacters = new List<char>();
-
-            while(true){
-                ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
-
-                if(keyInfo.Key == ConsoleKey.Enter){
-                    Console.WriteLine();
-                    break;
-                }
-
-                if(keyInfo.Key == ConsoleKey.Backspace){
-                    if(passwordCharacters.Count > 0){
-                        passwordCharacters.RemoveAt(passwordCharacters.Count - 1);
-                        if(Console.CursorLeft > 0){
-                            Console.Write("\b \b");
-                        }
-                    }
-
-                    continue;
-                }
-
-                passwordCharacters.Add(keyInfo.KeyChar);
-                Console.Write("*");
-            }
-
-            return new string(passwordCharacters.ToArray());
+            string? input = Console.ReadLine();
+            return input ?? string.Empty;
         }
     }
 }

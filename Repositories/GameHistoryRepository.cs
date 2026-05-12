@@ -133,5 +133,18 @@ ORDER BY attempt_number ASC, id ASC;", connection);
                 Feedback = Convert.ToString(row["feedback"]) ?? string.Empty
             };
         }
+
+        public int GetHighScoreForPlayer(int playerId)
+        {
+            using var connection = dbConnection.OpenConnection();
+            using var command = new NpgsqlCommand(@"
+SELECT MAX(score) AS high_score
+FROM games
+WHERE player_id = @player_id;", connection);
+            command.Parameters.AddWithValue("player_id", playerId);
+            var result = command.ExecuteScalar();
+            return result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
+        }
+        
     }
 }
