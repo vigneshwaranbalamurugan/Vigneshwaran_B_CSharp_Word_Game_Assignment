@@ -1,11 +1,15 @@
+using GameApp.Repositories;
+
 namespace GameApp.Data{
     internal class WordProvider{
-        private List<string> words = new List<string>{
-            "APPLE","MANGO","GRAPE","TRAIN","PLANT","BRAIN","CLOUD","STONE","RIVER","OCEAN","FLAME","BEACH","STORM","DANCE","MUSIC","HOUSE","HEART","PEACE","SMILE","LUCKY"
-        };
+        private readonly WordRepository wordRepository;
+
+        public WordProvider(){
+            wordRepository = new WordRepository();
+        }
 
         public string GetRandomWord(){
-            return words[Random.Shared.Next(0,words.Count)];
+            return wordRepository.GetRandomWord();
         }
     }
 }
